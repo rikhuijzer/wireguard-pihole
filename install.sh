@@ -17,7 +17,7 @@ if [[ ${1-} != "nosetup" ]]; then
   apt update
   apt autoremove -y
   DEBIAN_FRONTEND=noninteractive UCF_FORCE_CONFFOLD=YES apt -y upgrade
-  apt install -y unattended-upgrades update-notifier-common
+  apt install -y unattended-upgrades update-notifier-common net-tools
   echo "APT::Periodic::Update-Package-Lists 1;
 APT::Periodic::Download-Upgradeable-Packages 1;
 APT::Periodic::AutocleanInterval 7;
@@ -42,7 +42,7 @@ sysctl -p > /dev/null
 apt install -y linux-headers-$(uname -r)
 add-apt-repository -y ppa:wireguard/wireguard
 apt update
-apt install -y wireguard python-pip
+apt install -y wireguard python3-pip
 modprobe wireguard
 
 # Configure Wireguard
